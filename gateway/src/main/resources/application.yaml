@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: gateway
+  docker:
+    compose:
+      file: classpath:docker-compose.yaml
+  security:
+    oauth2:
+      client:
+        provider:
+          spring:
+            issuer-uri: http://auth-server:9000
+        registration:
+          todo-client:
+            provider: spring
+            client-id: todo-client
+            client-name: Todo Client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            scope:
+              - openid
+server:
+  port: 80
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE

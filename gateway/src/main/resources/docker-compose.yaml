@@ -1,0 +1,21 @@
+name: example-gateway
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - 22072:5432
+    volumes:
+      - gateway_db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=gateway
+      - POSTGRES_PASSWORD=Sv1l4pp0!
+      - POSTGRES_DB=gateway
+    networks:
+      - gateway
+volumes:
+  gateway_db:
+    driver:
+      local
+networks:
+  gateway:
+    driver: bridge

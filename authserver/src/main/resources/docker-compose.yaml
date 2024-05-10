@@ -1,0 +1,22 @@
+name: example-auth
+services:
+  db:
+    image: postgres:latest
+    container_name: auth-db
+    ports:
+      - 22071:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=auth
+      - POSTGRES_PASSWORD=Sv1l4pp0!
+      - POSTGRES_DB=auth_server
+    networks:
+      - auth_net
+volumes:
+  db:
+    driver:
+      local
+networks:
+  auth_net:
+    driver: bridge
