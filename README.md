@@ -3,7 +3,7 @@ in order for the example to work properly create a DNS entry
 
 
 Gateway & Oauth preconfigured to run on:
-* gateway.traefik.me
+* gateway.traefik.me -> 127.0.0.1
 
 **Requirements:**
 * Docker
